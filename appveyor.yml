@@ -27,7 +27,7 @@ init:
 - echo %generator%
 
 # Install yasm
-init:
+yasm:
   - mkdir C:\yasm
   - appveyor DownloadFile %YASM_URL% -FileName C:\yasm\yasm.exe
   - ps: if ((Get-FileHash C:\yasm\yasm.exe -Algorithm SHA256).Hash.ToLower() -ne $env:YASM_SHA256) { Throw "Yasm hash mismatch" }
