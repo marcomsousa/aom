@@ -7,6 +7,12 @@ environment:
 
 image: Visual Studio 2017
 
+branches:
+  only:
+  - master
+skip_tags: true
+clone_depth: 1
+
 configuration:
 - Release
 
@@ -29,7 +35,7 @@ init:
 - appveyor DownloadFile %YASM_URL% -FileName C:\yasm\yasm.exe
 - ps: if ((Get-FileHash C:\yasm\yasm.exe -Algorithm SHA256).Hash.ToLower() -ne $env:YASM_SHA256) { Throw "Yasm hash mismatch" }
 - set PATH=C:\yasm;%PATH%
-- git clone https://aomedia.googlesource.com/aom
+- git clone --depth 1 -b master --single-branch https://aomedia.googlesource.com/aom
 
 before_build:
 - cmd: |-
