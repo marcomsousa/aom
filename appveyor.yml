@@ -37,7 +37,7 @@ before_build:
     cd ci_build
     cmake --version
     cmake .. -DENABLE_TESTS=0 -DENABLE_DOCS=0 -G %generator%
-  - dir
+    dir
 
 build:
   project: c:\projects\aom\ci_build\template.sln
