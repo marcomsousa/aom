@@ -42,3 +42,14 @@ build_script:
   - dir
   - cd ci_build
   - dir
+
+build:
+  project: c:\projects\aom\ci_build\template.sln
+  verbosity: minimal
+  parallel: true
+only_commits:
+  files:
+    - CMakeLists.txt
+    - appveyor.yml
+    - source/
+    - cmake/
