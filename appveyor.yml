@@ -54,7 +54,7 @@ after_build:
 - 7z a aom_win64.zip %APPVEYOR_BUILD_FOLDER%\ci_build\Release\*
 
 artifacts:
-- path: %APPVEYOR_BUILD_FOLDER%\ci_build\aom_win64.zip
+- path: c:\projects\aom\ci_build\aom_win64.zip
   name: aom_win64
 
 on_finish:
