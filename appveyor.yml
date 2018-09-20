@@ -39,4 +39,6 @@ before_build:
     cmake .. -DENABLE_TESTS=0 -DENABLE_DOCS=0 -G %generator%
 
 build_script:
-  - make
+  - dir
+  - cd ci_build
+  - dir
