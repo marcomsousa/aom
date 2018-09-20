@@ -25,9 +25,7 @@ init:
 - echo %APPVEYOR_BUILD_WORKER_IMAGE%
 - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
 - echo %generator%
-
 # Install yasm
-yasm:
 - mkdir C:\yasm
 - appveyor DownloadFile %YASM_URL% -FileName C:\yasm\yasm.exe
 - ps: if ((Get-FileHash C:\yasm\yasm.exe -Algorithm SHA256).Hash.ToLower() -ne $env:YASM_SHA256) { Throw "Yasm hash mismatch" }
