@@ -48,7 +48,7 @@ after_build:
 
 artifacts:
 - path: aom_win64.zip
-    name: aom_win64
+  name: aom_win64
 
 on_finish:
   - dir
