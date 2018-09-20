@@ -1,18 +1,16 @@
 image: Visual Studio 2017
 
-environment:
-    matrix:
-    - channel: stable
-      target: x86_64-pc-windows-msvc
-
 configuration:
 - Release
+
 platform:
 - x64
+
 environment:
   matrix:
   - arch: Win64
   # - arch: #does not work, Release|x64 not a valid target
+
 matrix:
   fast_finish: true
 
