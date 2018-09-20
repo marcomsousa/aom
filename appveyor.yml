@@ -13,7 +13,6 @@ configuration:
 platform:
 - x64
 
-
 matrix:
   fast_finish: true
 
@@ -43,9 +42,15 @@ build:
   project: c:\projects\aom\ci_build\AOM.sln
   verbosity: minimal
   parallel: true
-only_commits:
-  files:
-    - CMakeLists.txt
-    - appveyor.yml
-    - source/
-    - cmake/
+
+after_build:
+  - 7z a aom_win64.zip %APPVEYOR_BUILD_FOLDER%\ci_build\Release\*
+
+artifacts:
+- path: aom_win64.zip
+    name: aom_win64
+
+on_finish:
+  - dir
+  - cd ci_build
+  - dir
