@@ -37,10 +37,6 @@ before_build:
     cd ci_build
     cmake --version
     cmake .. -DENABLE_TESTS=0 -DENABLE_DOCS=0 -G %generator%
-
-build_script:
-  - dir
-  - cd ci_build
   - dir
 
 build:
