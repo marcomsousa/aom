@@ -46,7 +46,7 @@ before_build:
     dir
 
 build:
-  project: %APPVEYOR_BUILD_FOLDER%\ci_build\AOM.sln
+  project: c:\projects\aom\ci_build\AOM.sln
   verbosity: minimal
   parallel: true
 
