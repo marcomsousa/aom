@@ -35,14 +35,14 @@ init:
 - appveyor DownloadFile %YASM_URL% -FileName C:\yasm\yasm.exe
 - ps: if ((Get-FileHash C:\yasm\yasm.exe -Algorithm SHA256).Hash.ToLower() -ne $env:YASM_SHA256) { Throw "Yasm hash mismatch" }
 - set PATH=C:\yasm;%PATH%
-- git clone --depth 1 -b master --single-branch https://aomedia.googlesource.com/aom
+- git clone --depth 1 -b master --single-branch https://aomedia.googlesource.com/aom c:\projects\aom_src
 
 before_build:
 - cmd: |-
     mkdir ci_build
     cd ci_build
     cmake --version
-    cmake ..\aom -DENABLE_TESTS=0 -DENABLE_DOCS=0 -G %generator%
+    cmake c:\projects\aom_src -DENABLE_TESTS=0 -DENABLE_DOCS=0 -G %generator%
     dir
 
 build:
@@ -54,8 +54,9 @@ after_build:
 - 7z a aom_win64.zip %APPVEYOR_BUILD_FOLDER%\ci_build\Release\*
 
 artifacts:
-- path: c:\projects\aom\ci_build\aom_win64.zip
+- path: c:\projects\aom\ci_build\ci_build\Release
   name: aom_win64
+  type: zip
 
 on_finish:
 - cd %APPVEYOR_BUILD_FOLDER%
