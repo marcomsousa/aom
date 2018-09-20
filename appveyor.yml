@@ -27,7 +27,7 @@ init:
 
 before_build:
 - cmd: |-
-    mkdir build
-    cd build
+    mkdir ci_build
+    cd ci_build
     cmake --version
     cmake .. -G %generator%
